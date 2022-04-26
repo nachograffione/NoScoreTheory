@@ -1,0 +1,54 @@
+----------------------------------------------------------------------
+- CONSTRUCTOR CON ENTRADAS INVALIDAS
+
+Criterios:
+	Fundamental invalida:
+		octava invalida
+		alteracion invalida (doble) en la fundamental
+	Tipo invalido:
+		no existente
+	Escala invalida (combinacion de ambas):
+		alteracion invalida (doble) al generar la escala
+
+Entradas:
+(Note("do", "", 4), "mayor")
+(Note("do", "bb", 3), "mayor")
+(Note("do", "", 3), "mayorrr")
+(Note("sol", "#", 3), "mayor")
+
+
+Salidas:
+0		x4
+
+
+----------------------------------------------------------------------
+- CONSTRUCTOR CON ENTRADAS VALIDAS
+
+Criterios:
+	Fundamental:
+		natural
+		alterada
+	Tipos:
+		todos (esto obliga a generar escalas con ambas alteraciones casi siempre)
+
+Entradas:
+(Note("do", "", 3), "mayor")
+(Note("do", "", 3), "menor natural")
+
+(Note("fa", "#", 3), "mayor")
+(Note("fa", "#", 3), "menor natural")
+
+(Note("si", "b", 4), "mayor")
+(Note("si", "b", 4), "menor natural")
+
+
+Salidas:
+
+do mayor ->  do re mi fa sol la si
+do menor natural ->  do re mib fa sol lab sib
+
+fa# mayor ->  fa# sol# la# si do# re# mi#
+fa# menor natural ->  fa# sol# la si do# re mi
+
+sib mayor ->  sib do re mib fa sol la
+sib menor natural ->  sib do reb mib fa solb lab

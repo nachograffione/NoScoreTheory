@@ -1,0 +1,266 @@
+----------------------------------------------------------------------
+- SETNOTE CON ENTRADAS INVALIDAS
+
+Criterios:
+	Nombres invalidos: vacio, errado
+	Alteraciones invalidas: errado
+	Octavas invalidas: octavas fuera de rango, octavas de extremos con notas fuera de rango.
+
+Entradas:
+("", "")
+("do#")
+("mii")
+("fa","##")
+("do","", 10)
+("do","", -3)
+("do","b",-2)
+("sol", "#", 8)
+
+Salidas:
+0
+do(3) - 60		x8
+
+----------------------------------------------------------------------
+- SETNOTE CON ENTRADAS VALIDAS
+
+Criterios:
+	Nombres: el primero, el ultimo y los intermedios
+	Alteraciones: por defecto, todas
+	Octavas: por defecto, 0, positiva y negativa
+	todo por defecto
+
+Entradas:
+()
+("do")
+("re", "")
+("mi", "bb")
+("fa", "b", 6)
+("sol", "#", -2)
+("si", "x", 0)
+
+
+Salidas:
+1
+do(3) - 60
+1
+do(3) - 60
+1
+re(3) - 62
+1
+mibb(3) - 62
+1
+fab(6) - 100
+1
+sol#(-2) - 8
+1
+six(0) - 37
+
+
+----------------------------------------------------------------------
+- GETTERS Y OPERATORS
+(no es necesario testear)
+
+
+----------------------------------------------------------------------
+- SETTERS CON ENTRADAS INVALIDAS
+Criterios:
+	(Se usa el do3)
+	Todas las del constructor (invalidas directamente)
+	Setear algo y que justo quede una nota fuera de rango
+
+Entradas:
+
+Invalidas directamente:
+setName:
+("")
+("do#")
+("mii")
+setSignature:
+("##")
+setOctave:
+(10)
+(-3)
+
+Dejar fuera de rango (con vector specialNotes, el que corresponda):
+specialNotes[0].setName("do");
+specialNotes[1].setName("sol");
+specialNotes[2].setSignature("b");
+specialNotes[3].setSignature("#");
+specialNotes[4].setOctave(-2);
+specialNotes[5].setOctave(8);
+
+
+Salidas:
+0					x12
+reb(-2) - 1
+fa#(8) - 126
+do(-2) - 0
+sol(8) - 127
+dob(-1) - 11
+sol#(7) - 116
+
+
+----------------------------------------------------------------------
+- SETTERS CON ENTRADAS VALIDAS
+Criterios:
+	(Se usa el do3)
+	Idem constructor
+	
+
+Entradas:
+
+setName:
+("do")
+("mi")
+("si")
+
+setSignature:
+("")
+("bb")
+("b")
+("#")
+("x")
+
+setOctave:
+(8)
+(3)
+(0)
+(-2)
+
+
+Salidas:
+do(3) - 60
+mi(3) - 64
+si(3) - 71
+do(3) - 60
+dobb(3) - 58
+dob(3) - 59
+do#(3) - 61
+dox(3) - 62
+do(8) - 120
+do(3) - 60
+do(0) - 24
+do(-2) - 0
+
+
+----------------------------------------------------------------------
+- OTHERS CON ENTRADAS INVALIDAS
+Criterios:
+	(se usa do3 y las notas especiales)
+	Las entradas son las equivalentes a las usadas en los setters
+	(ej. si hacia un setName(re) sobre un do, aca hago shiftName(1))
+	shiftName: idem setName, y ademas entradas fueras de rango directas.
+	shiftSignature: idem setSignature
+	shiftOctave: idem setOctave.
+
+Entradas:
+
+Invalidas directamente:
+
+shiftName:
+(-50)
+(70)
+
+shiftSignature:
+(-1)
+(1)
+
+shiftOctave:
+(7)
+(-6)
+
+Dejar fuera de rango (con vector specialNotes, el que corresponda):
+specialNotes[0].shiftName(-1);
+specialNotes[1].shiftName(1);
+specialNotes[2].shiftSignature(-1);
+specialNotes[3].shiftSignature(2);
+specialNotes[4].shiftOctave(-1);
+specialNotes[5].shiftOctave(-1);
+
+
+Salidas:
+0 				x12
+reb(-2) - 1
+fa#(8) - 126
+do(-2) - 0
+sol(8) - 127
+dob(-1) - 11
+sol#(7) - 116
+
+----------------------------------------------------------------------
+- OTHERS CON ENTRADAS VALIDAS
+Criterios:
+	(se usa do3 y fa3)
+	shiftName: con fa3! hasta los intermedios, hasta los extremos de la octava,
+	pasando los extremos de la octava por 1, pasando el fa2 y el fa4
+	shiftSignature: idem setSIgnature.
+	shiftOctave: idem setOctave. Ver explicacion en others con entradas invalidas.
+
+Entradas:
+
+shiftName (con fa3):
+(-2)
+(2)
+(-3)
+(3)
+(-4)
+(4)
+(-9)
+(10)
+
+shiftSignature (con do3):
+(-2)
+(-1)
+(1)
+(2)
+
+shiftOctave (con do3):
+(5)
+(0)
+(-3)
+(-5)
+
+Salidas:
+re(3) - 62
+la(3) - 69
+do(3) - 60
+si(3) - 71
+si(2) - 59
+do(4) - 72
+re(2) - 50
+si(4) - 83
+
+dobb(3) - 58
+dob(3) - 59
+do#(3) - 61
+dox(3) - 62
+
+do(8) - 120
+do(3) - 60
+do(0) - 24
+do(-2) - 0
+
+----------------------------------------------------------------------
+- GETNOTESBYPOSITION CON ENTRADAS VALIDAS
+Criterios:
+	primera y ultima nota de la octava
+	nota del medio
+
+Entradas:
+60
+71
+63
+
+
+Salidas:
+do(3) - 60
+rebb(3) - 60
+si#(2) - 60
+
+si(3) - 71
+dob(4) - 71
+lax(3) - 71
+
+re#(3) - 63
+mib(3) - 63
+fabb(3) - 63

@@ -1,0 +1,99 @@
+
+
+-----SESSION    13-12-2021 18:06
+
+IntervalConstruction
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+IntervalIdentification
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+ScaleConstruction
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+ScaleIdentification
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+
+-----SESSION    13-12-2021 18:04
+
+IntervalConstruction
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+IntervalIdentification
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+ScaleConstruction
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+ScaleIdentification
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+
+-----SESSION    13-12-2021 18:01
+
+IntervalConstruction
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+IntervalIdentification
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+ScaleConstruction
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+ScaleIdentification
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+
+-----SESSION    09-12-2021 17:20
+
+IntervalConstruction
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+IntervalIdentification
+    Correct answers: 1
+    Incorrect answers details (targets): 
+        5ta aumentada asc (8st)    FROM do#(3) - 61    TO solx(3) - 69
+
+ScaleConstruction
+    Correct answers: 1
+    Incorrect answers details (targets): 
+
+ScaleIdentification
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+
+-----SESSION    22-02-2020 20:45
+
+IntervalConstruction
+    Correct answers: 0
+    Incorrect answers details (targets): 
+        2da menor asc (1st)    FROM si(3) - 71    TO do(4) - 72
+
+IntervalIdentification
+    Correct answers: 1
+    Incorrect answers details (targets): 
+
+ScaleConstruction
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+ScaleIdentification
+    Correct answers: 0
+    Incorrect answers details (targets): 
+
+

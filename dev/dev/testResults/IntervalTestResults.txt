@@ -1,0 +1,255 @@
+----------------------------------------------------------------------
+- SETINTERVAL CON NOTAS CON ENTRADAS INVALIDAS
+
+Criterios:
+	- Para nota del inicio, final y del medio (con alteracion), asc y desc:
+		- Distancia entre nombres de notas muy largo (por 1 y por mas)
+		- Algunos intervalos invalidos dentro del rango (habria un monton para probar)
+
+Entradas:
+
+Nota del inicio:
+note1 en "do"
+note2 en:
+"do", "", 4
+"do", "", 2
+"mi", "", 4
+"la", "", 2
+"do", "bb"
+"mi", "x"
+"la", "bb", 2
+
+Nota del medio con alteracion:
+note1 en "fa", "#"
+note2 en:
+"fa", "#", 4
+"fa", "#", 2
+"la", "", 4
+"re", "", 2
+"fa", ""
+"si", "bb"
+"la", "x", 2
+
+Nota final:
+note1 en "si"
+note2 en:
+"si", "", 4
+"si", "", 2
+"re", "", 4
+"sol", "", 2
+"fa", "b", 4
+"do", "x", 4
+"re", "x"
+
+
+Salidas:
+0				x21
+unisono
+
+
+----------------------------------------------------------------------
+- SETINTERVAL CON NOTAS CON ENTRADAS VALIDAS
+
+Criterios:
+	- Para nota del inicio, final y del medio (con alteracion), asc y desc:
+		- Algunos intervalos dentro del rango (habria un monton para probar)
+
+Entradas:
+
+Nota del inicio:
+note1 en "do"
+note2 en:
+"do", "", 3
+"re", "", 3
+"re", "#", 3
+"mi", "b", 2
+
+Nota del medio con alteracion:
+note1 en "fa", "#",3
+note2 en:
+"mi", "#", 3
+"si", "#", 2
+"la", "", 3
+"do", "#", 4
+
+Nota final:
+note1 en "si"
+note2 en:
+"do", "", 3
+"re", "#",4
+"la", "b", 4
+"fa", "", 3
+
+
+Salidas:
+unisono
+2da mayor asc
+2da aumentada asc
+6ta mayor desc
+
+2da menor desc
+5ta disminuida desc
+3ra menor asc
+5ta justa asc
+
+7ma mayor desc
+3ra mayor asc
+7ma disminuida asc
+4ta aumentada desc
+
+
+----------------------------------------------------------------------
+- CONSTRUCTOR CON NOMBRE CON ENTRADAS INVALIDAS
+
+Criterios:
+	- Error directo de nombre, atributo y direccion
+	- Atributo invalido para el nombre dado
+	- Nota de referencia en los extremos con intervalo que quede fuera del rango
+
+Entradas:
+
+(Note("do"), "2daa", "mayor", "asc")
+(Note("do"), "2da", "mayorr", "asc")
+(Note("do"), "2da", "mayor", "ascc")
+(Note("do"), "2da", "disminuida", "asc")
+(Note("do","",-2), "3ra", "mayor", "desc")
+(Note("sol","",8), "3ra", "mayor", "asc")
+
+Salidas:
+0		x6
+
+----------------------------------------------------------------------
+- CONSTRUCTOR CON NOMBRE CON ENTRADAS VALIDAS
+
+Criterios:
+	- Para nota del inicio, final y del medio (con alteracion), asc y desc:
+		- Algunos tipos de intervalos (habria un monton para probar)
+		(se ponen los parametros que generarian los mismos que en el test del otro constructor)
+
+Entradas:
+
+Nota del inicio:
+(Note("do"), "unisono", "", "")
+(Note("do"), "2da", "mayor", "asc")
+(Note("do"), "2da", "aumentada", "asc")
+(Note("do"), "6ta", "mayor", "desc")
+
+Nota del medio con alteracion:
+(Note("fa", "#"), "2da", "menor", "desc")
+(Note("fa", "#"), "5ta", "disminuida", "desc")
+(Note("fa", "#"), "3ra", "menor", "asc")
+(Note("fa", "#"), "5ta", "justa", "asc")
+
+Nota final:
+(Note("si"), "7ma", "mayor", "desc")
+(Note("si"), "3ra", "mayor", "asc")
+(Note("si"), "7ma", "disminuida", "asc")
+(Note("si"), "4ta", "aumentada", "desc")
+
+Salidas:
+
+unisono
+2da mayor asc
+2da aumentada asc
+6ta mayor desc
+
+2da menor desc
+5ta disminuida desc
+3ra menor asc
+5ta justa asc
+
+7ma mayor desc
+3ra mayor asc
+7ma disminuida asc
+4ta aumentada desc
+
+
+----------------------------------------------------------------------
+- GETTERS Y OPERATORS
+(SOLO getInvertion() QUE ES COMPLEJO)
+
+Criterios:
+	- Algunos tipos de intervalos (habria un monton para probar)
+	(se usan los del test de los constructores)
+
+Entradas:
+
+Nota del inicio:
+"do"))
+"re"))
+"re", "#"))
+"mi", "b", 2))
+
+Nota del medio con alteracion:
+"mi", "#"))
+"si", "#", 2))
+"la", ""))
+"do", "#", 4))
+
+Nota final:
+"do"))
+"re", "#",4))
+"la", "b", 4))
+"fa"))
+
+
+Salidas:
+unisono
+7ma menor desc
+7ma disminuida desc
+3ra menor asc
+
+7ma mayor asc
+4ta aumentada asc
+6ta mayor desc
+4ta justa desc
+
+2da menor asc
+6ta menor desc
+2da aumentada desc
+5ta disminuida asc
+
+
+----------------------------------------------------------------------
+- OTHERS
+
+Criterios:
+	- Algunos tipos de intervalos (habria un monton para probar)
+	(se usan los del test de los constructores)
+
+Entradas:
+
+Nota del inicio:
+"do"))
+"re"))
+"re", "#"))
+"mi", "b", 2))
+
+Nota del medio con alteracion:
+"mi", "#"))
+"si", "#", 2))
+"la", ""))
+"do", "#", 4))
+
+Nota final:
+"do"))
+"re", "#",4))
+"la", "b", 4))
+"fa"))
+
+
+Salidas:
+unisono
+7ma menor desc
+7ma disminuida desc
+3ra menor asc
+
+7ma mayor asc
+4ta aumentada asc
+6ta mayor desc
+4ta justa desc
+
+2da menor asc
+6ta menor desc
+2da aumentada desc
+5ta disminuida asc
